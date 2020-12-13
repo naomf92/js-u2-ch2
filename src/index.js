@@ -27,10 +27,21 @@ function getData() {
 /*↓lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
   またsetTimeoutを利用して、1秒待ってから結果を得るようにします*/
 function fetchData() {
-  const promiseObj = new Promise ((resolve,reject) => {
-    setTimeout(function(){resolve();},1000);
+  return new Promise ((resolve,reject) => {
+    if (/*result === "Success"*/) {
+      // resolve({
+      //   success: true,
+      //   propertyData: propertyData
+      // })
+      setTimeout(function(){resolve();},1000);
+    } else {
+      // reject({
+      //   success: false,
+      //   message: ('データの取得に失敗しました。')
+      // });
+      setTimeout(function(){reject();},1000);
+    }
   });
-
 }
 
 {
