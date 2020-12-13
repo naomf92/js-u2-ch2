@@ -17,22 +17,20 @@ const propertyData = {
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
-  /* 
-    getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
-  */
+  /*getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。*/
 }
 
 function getData() {
-  /* 
-    fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。
-  */
+  /*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
 }
 
+/*↓lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
+  またsetTimeoutを利用して、1秒待ってから結果を得るようにします*/
 function fetchData() {
-  /* 
-    lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
-    またsetTimeoutを利用して、1秒待ってから結果を得るようにします。
-  */
+  const promiseObj = new Promise ((resolve,reject) => {
+    setTimeout(function(){resolve();},1000);
+  });
+
 }
 
 {
