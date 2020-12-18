@@ -28,19 +28,8 @@ function getData() {
   またsetTimeoutを利用して、1秒待ってから結果を得るようにします*/
 function fetchData() {
   return new Promise ((resolve,reject) => {
-    if (/*result === "Success"*/) {
-      // resolve({
-      //   success: true,
-      //   propertyData: propertyData
-      // })
-      setTimeout(function(){resolve();},1000);
-    } else {
-      // reject({
-      //   success: false,
-      //   message: ('データの取得に失敗しました。')
-      // });
-      setTimeout(function(){reject();},1000);
-    }
+      setTimeout(function(){resolve()},1000);
+      setTimeout(function(){reject()},1000);
   });
 }
 
