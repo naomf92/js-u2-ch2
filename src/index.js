@@ -42,7 +42,6 @@ function fetchData() {
       },1000);
   });
 }
-fetchData();
 
 {
   const button1 = document.getElementById('button1');
