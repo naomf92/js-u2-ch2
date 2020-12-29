@@ -28,10 +28,21 @@ function getData() {
   またsetTimeoutを利用して、1秒待ってから結果を得るようにします*/
 function fetchData() {
   return new Promise ((resolve,reject) => {
-      setTimeout(function(){resolve()},1000);
-      setTimeout(function(){reject()},1000);
+    const percentage = _.random(1, 5);/*4/5 1/5*/
+      setTimeout(() => {if (percentage <= 4) {
+        resolve({
+          success: true,
+          propertyData: propertyData
+        })
+      } else {
+        reject({
+          success: false,
+          message: 'データの取得に失敗しました。'
+        })}
+      },1000);
   });
 }
+fetchData();
 
 {
   const button1 = document.getElementById('button1');
