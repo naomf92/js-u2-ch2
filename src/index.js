@@ -14,18 +14,25 @@ const propertyData = {
   }
 }
 
+/*getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。*/
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
-  /*getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。*/
 }
 
+ /*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
 function getData() {
-  /*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
+  fetchData().then(
+    (result) => {
+      console.log(result);
+      //Promise.resolve();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
-/*↓lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
-  またsetTimeoutを利用して、1秒待ってから結果を得るようにします*/
 function fetchData() {
   return new Promise ((resolve,reject) => {
     const percentage = _.random(1, 5);/*4/5 1/5*/
@@ -45,5 +52,5 @@ function fetchData() {
 
 {
   const button1 = document.getElementById('button1');
-  button1.addEventListener("click", handleClick);
+  button1.addEventListener("click", getData/*handleClick*/);
 }
