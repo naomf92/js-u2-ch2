@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { result } from 'lodash';
 
 const propertyData = {
   id: 1,
