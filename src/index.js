@@ -1,4 +1,4 @@
-import _, { result } from 'lodash';
+import _ from 'lodash';
 
 const propertyData = {
   id: 1,
@@ -18,19 +18,21 @@ const propertyData = {
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
+  getData()
+  .catch(() => {})
+  .then(() => {})
 }
 
- /*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
+/*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
+/*取得したデータを表示する機能」だということを意識して処理内容を書く*/
 function getData() {
-  fetchData().then(
-    (result) => {
-      console.log(result);
-      //Promise.resolve();
-    },
-    (error) => {
-      console.log(error);
+  return fetchData().then((result) => {
+    if (result.success) {
+      return Promise.resolve(result.propertyData);
+    } else {
+      return Promise.reject(result.message);
     }
-  );
+  });
 }
 
 function fetchData() {
@@ -52,5 +54,5 @@ function fetchData() {
 
 {
   const button1 = document.getElementById('button1');
-  button1.addEventListener("click", getData/*handleClick*/);
+  button1.addEventListener("click", handleClick);
 }
