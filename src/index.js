@@ -18,13 +18,20 @@ const propertyData = {
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
-  getData()
-  .catch(() => {})
-  .then(() => {})
+  return getData()
+  .catch((error) => {
+    mainEl.innerHTML = `
+      <p>${error.message}</p>
+    `
+  })
+  .then((result) => {
+    mainEl.innerHTML = `
+      <p>${result.propertyData}</p>
+      `
+  })
 }
 
 /*fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。*/
-/*取得したデータを表示する機能」だということを意識して処理内容を書く*/
 function getData() {
   return fetchData().then((result) => {
     if (result.success) {
