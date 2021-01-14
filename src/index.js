@@ -25,14 +25,17 @@ function handleClick(e) {
     `
   })
   .then((result) => {
-    // 引数resultにはオブジェクトpropertyDataが丸ごと入っています
-    // オブジェクトを丸ごと呼び出すと「具体的にpropertyDataのどの値ですか？」と返されるのでundefinedとなります
-    // オブジェクトpropertyDataのidを呼び出す場合は、どう書いたら良いでしょうか？
-    // その他の値も同様です
-    console.log(result);
     mainEl.innerHTML = `
-      <p>${result.propertyData}</p>
-    `
+      <p>${propertyData.id}</p>
+      <p>${propertyData.propertyName}</p>
+      <p>${propertyData.propertyType}</p>
+      <p>${propertyData.cancelPolicy}</p>
+      <p>${propertyData.roomNum}</p>
+      <p>${propertyData.bathroomNum}</p>
+      <p>${propertyData.priceInDollars}</p>
+      <p>${propertyData.host.id}</p>
+      <p>${propertyData.host.firstName}</p>
+      `
   })
 }
 
