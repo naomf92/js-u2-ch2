@@ -25,9 +25,11 @@ function handleClick(e) {
     `
   })
   .then((result) => {
+    // アウトプットだけみるユーザーは、「１」や「private」だけだとなんの情報なのかがわからないので30、31行目のようにするとわかりやすいです
+    // 引数resultには、オブジェクトpropertyDataの値が全て格納されているので、引数resultを使います
     mainEl.innerHTML = `
-      <p>${propertyData.id}</p>
-      <p>${propertyData.propertyName}</p>
+      <p>宿 id番号: ${result.id}</p>
+      <p>宿泊先、宿名: ${result.propertyName}</p>
       <p>${propertyData.propertyType}</p>
       <p>${propertyData.cancelPolicy}</p>
       <p>${propertyData.roomNum}</p>
