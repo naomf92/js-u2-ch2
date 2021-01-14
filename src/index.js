@@ -27,7 +27,7 @@ function handleClick(e) {
   .then((result) => {
     mainEl.innerHTML = `
       <p>${result.propertyData}</p>
-      `
+    `
   })
 }
 
